@@ -1,0 +1,67 @@
+Source : /home/user/BelzmaGeoPortei/belezma-geoportail_13.html (2.67 Mo)
+
+INVENTAIRE DES COUCHES
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+identifiant               entités  positions géométries                     taille  observations
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+boundary                        1       1410 Polygon                       53.0 Ko  conforme
+zone_centrale                   1       1824 MultiPolygon                  33.6 Ko  conforme
+zone_tampon                     1       2031 MultiPolygon                  37.5 Ko  conforme
+cedraie                        64       6464 MultiPolygon, Polygon        127.0 Ko  conforme
+chenaie                       419       9155 MultiPolygon, Polygon        211.3 Ko  conforme
+pinede                         29       2338 Polygon                       48.4 Ko  conforme
+pelouses                     3275      16313 Polygon                      573.7 Ko  conforme
+friches_cultures               18       1314 Polygon                       26.1 Ko  conforme
+terrains_nus                  518       5566 Polygon                      160.3 Ko  conforme
+falaises                       63        927 Polygon                       22.1 Ko  conforme
+hydrographique                 72       9534 LineString, MultiLineString   182.5 Ko  conforme
+grottes_gisements              13        260 Polygon                        6.2 Ko  conforme
+mines_grottes                 234        234 Point                         25.1 Ko  ⚠ 85 position(s) hors de l'emprise du parc
+routes                        193       6122 LineString, MultiLineString   128.4 Ko  conforme
+lignes_electriques             72        380 LineString, Point, Polygon    13.9 Ko  conforme
+poste_vigie                     3          3 Point                           392 o  conforme
+piste_degradee                 33       2716 LineString, MultiLineString    53.9 Ko  conforme
+piste_praticable               45       3359 LineString, MultiLineString    66.6 Ko  conforme
+tranchees_parefeu              32        437 LineString                    11.3 Ko  conforme
+circuits_touristiques          63       7477 GeometryCollection, LineString, Point   143.2 Ko  ⚠ 19 position(s) hors de l'emprise du parc
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+20 couches                   5149                                          1.88 Mo
+
+EMPRISE DE LA LIMITE OFFICIELLE
+  lng 5.90287 → 6.30941   lat 35.51298 → 35.69690
+  propriétés : OBJECTID, Id, superficie, Shape_Leng, Shape_Area, superficie_ha, perimetre_km, nom
+
+JEUX DE DONNÉES ESPÈCES
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+identifiant                      fiches  type             champs
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+flore_protegee                       32  flore            nom_scientifique, famille
+flore_uicn                          248  flore_uicn       nom_scientifique, famille, statut_uicn
+flore_endemique_rare                 43  flore_rare       nom_scientifique, rarete, chorotype
+faune_invertebres_proteges           27  faune            espece, famille, ordre
+faune_reptiles_proteges               7  faune            espece, famille, ordre
+faune_oiseaux_proteges               43  faune            espece, famille, ordre
+faune_mammiferes_proteges             8  faune            espece, famille, ordre
+faune_vertebres_uicn                 15  faune_uicn       groupe, espece, nom_commun, statut_uicn
+faune_invertebres_uicn                9  faune_inv_uicn   espece, ordre, statut_uicn
+faune_endemisme                      38  endemisme        groupe, espece, nom_commun, endemisme
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+10 jeux                             470  44.6 Ko
+
+AUTRES FICHIERS ÉMIS
+  server/seed/catalog.json              23 entrées   3.8 Ko
+  server/seed/heritage.json              2 sites     291 o (marqués DEMO)
+  server/seed/demo-observations.json     4 points    594 o (marqués DEMO)
+  server/seed/reference.json             5 fonds     1.1 Ko
+  client/src/assets/hero-belezma.jpg                265.0 Ko
+
+AVERTISSEMENTS
+  ⚠ L'emprise réelle de la limite officielle (lng 5.9029→6.3094, lat 35.5130→35.6969) déborde de l'emprise nominale (lng 5.87→6.15, lat 35.5→35.75). C'est l'emprise calculée qui fait foi.
+  ⚠ Couche `juniperaie` non extraite — vide dans les fichiers source d'origine, conforme aux notes du prototype.
+  ⚠ Couche `secteur_conservation` non extraite — vide dans les fichiers source d'origine, conforme aux notes du prototype.
+  ⚠ Couche `urbain` non extraite — vide dans les fichiers source d'origine, conforme aux notes du prototype.
+  ⚠ Couche `zone_transition` non extraite — vide dans les fichiers source d'origine, conforme aux notes du prototype.
+  ⚠ 1 image(s) en double ignorée(s) — le prototype réutilise la photographie du héros dans la galerie.
+  ⚠ 1 photographie(s) distincte(s) dans le prototype : les cinq autres vignettes de la galerie « Paysages du Belezma » sont des emplacements réservés sans image. Des photographies réelles seront nécessaires.
+
+Extraction terminée.
