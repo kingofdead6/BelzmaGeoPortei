@@ -117,7 +117,6 @@ function extractLiteral(source, name) {
         const literal = source.slice(match.index + match[0].length, i + 1);
         // Les littéraux du prototype utilisent des clés non quotées et des
         // commentaires de fin de ligne : on les évalue plutôt que JSON.parse.
-        // eslint-disable-next-line no-new-func
         return Function(`"use strict"; return (${literal});`)();
       }
     }

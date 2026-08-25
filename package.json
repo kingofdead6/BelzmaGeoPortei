@@ -1,0 +1,39 @@
+{
+  "name": "belezma-geoportail",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Géoportail du Parc National de Belezma — Batna, Algérie",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "workspaces": [
+    "shared",
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "extract": "node scripts/extract-from-prototype.mjs",
+    "build:shared": "npm run build --workspace @belezma/shared",
+    "build": "npm run build:shared && npm run build --workspace @belezma/server && npm run build --workspace @belezma/client",
+    "dev": "npm run build:shared && concurrently -n api,web -c green,cyan \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:server": "npm run dev --workspace @belezma/server",
+    "dev:client": "npm run dev --workspace @belezma/client",
+    "seed": "npm run build:shared && npm run seed --workspace @belezma/server",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "lint": "eslint .",
+    "test": "npm run test --workspaces --if-present"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.13.0",
+    "concurrently": "^9.0.1",
+    "eslint": "^9.13.0",
+    "globals": "^15.11.0",
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.11.0"
+  },
+  "overrides": {
+    "vite": "^6.4.3",
+    "esbuild": "^0.25.12"
+  }
+}
