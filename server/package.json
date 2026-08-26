@@ -41,6 +41,7 @@
     "@types/jsonwebtoken": "^9.0.7",
     "@types/multer": "^2.0.0",
     "@types/node": "^22.8.0",
+    "@types/nodemailer": "^7.0.4",
     "@types/shpjs": "^3.4.7",
     "@types/supertest": "^6.0.2",
     "mongodb-memory-server": "^10.1.2",

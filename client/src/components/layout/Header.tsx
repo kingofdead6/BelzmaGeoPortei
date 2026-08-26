@@ -2,6 +2,7 @@ import { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { Menu, Mountain, X } from "lucide-react";
 import { clsx } from "../../lib/clsx";
+import { UserMenu } from "./UserMenu";
 
 const NAV = [
   { to: "/", label: "Accueil", end: true },
@@ -55,9 +56,13 @@ export function Header() {
           </ul>
         </nav>
 
+        <div className="ml-auto lg:ml-0">
+          <UserMenu />
+        </div>
+
         <button
           type="button"
-          className="ml-auto flex h-11 w-11 items-center justify-center rounded-control text-paper lg:hidden"
+          className="flex h-11 w-11 items-center justify-center rounded-control text-paper lg:hidden"
           aria-expanded={open}
           aria-controls="navigation-mobile"
           aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
