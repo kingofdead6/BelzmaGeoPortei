@@ -10,3 +10,6 @@ coverage/
 .vite/
 .turbo/
 server/.env.test
+client/dist/
+server/dist/
+shared/dist/

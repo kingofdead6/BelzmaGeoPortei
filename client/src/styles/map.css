@@ -1,0 +1,50 @@
+/* Feuille de style de la carte — chargée avec la route /geoportail seulement. */
+@import "leaflet/dist/leaflet.css";
+@import "react-leaflet-cluster/lib/assets/MarkerCluster.css";
+@import "react-leaflet-cluster/lib/assets/MarkerCluster.Default.css";
+
+/* --- Leaflet : accord avec la palette du parc ---------------------------- */
+.leaflet-container {
+  font-family: inherit;
+  background: theme("colors.sand");
+}
+
+.leaflet-control-zoom a,
+.leaflet-bar a {
+  @apply border-forest-light/40 bg-paper text-forest-deep;
+  border-radius: 4px !important;
+}
+
+.leaflet-control-zoom a:hover,
+.leaflet-bar a:hover {
+  @apply bg-sand;
+}
+
+.leaflet-control-attribution {
+  @apply bg-paper/90 font-mono text-2xs text-ink/70;
+}
+
+.leaflet-popup-content-wrapper {
+  @apply rounded-card border border-forest-light/40 bg-paper text-ink shadow-panel;
+}
+
+.leaflet-popup-tip {
+  @apply bg-paper;
+}
+
+.leaflet-popup-content {
+  @apply m-0 p-0;
+}
+
+/* Groupes de marqueurs — même grammaire de couleur que le reste. */
+.marker-cluster-small,
+.marker-cluster-medium,
+.marker-cluster-large {
+  background-color: rgba(45, 106, 79, 0.28);
+}
+
+.marker-cluster-small div,
+.marker-cluster-medium div,
+.marker-cluster-large div {
+  @apply bg-forest font-mono text-xs font-medium text-paper;
+}
