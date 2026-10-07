@@ -17,6 +17,16 @@ import { buildImageUrls } from "./cloudinary.js";
 type Lean<T> = T & { _id: Types.ObjectId };
 type MaybeDocument<T> = Lean<T> | HydratedDocument<T>;
 
+/**
+ * Entrée du sérialiseur de contribution. `owner` est volontairement `unknown` :
+ * selon la requête, Mongoose fournit un identifiant brut ou un document
+ * utilisateur peuplé, et un `populate` typé produit un document que
+ * `HydratedDocument<ContributionAttributes>` ne décrit plus.
+ */
+type SerializableContribution = Omit<MaybeDocument<ContributionAttributes>, "owner"> & {
+  owner: unknown;
+};
+
 function id(value: unknown): string {
   return String(value);
 }
@@ -59,9 +69,7 @@ const ANONYMOUS_OWNER: ContributionDto["owner"] = {
   organization: null,
 };
 
-export function toContribution(
-  contribution: MaybeDocument<ContributionAttributes>,
-): ContributionDto {
+export function toContribution(contribution: SerializableContribution): ContributionDto {
   const owner = contribution.owner;
   const media = contribution.media ?? null;
   const layer = contribution.layer ?? null;

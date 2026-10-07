@@ -7,6 +7,8 @@ import { speciesRouter } from "./species.js";
 import { contributionsRouter } from "./contributions.js";
 import { contributionsWriteRouter, uploadsRouter } from "./contributions-write.js";
 import { mapRouter } from "./map.js";
+import { moderationRouter } from "./moderation.js";
+import { adminRouter } from "./admin.js";
 
 export const apiRouter: Router = Router();
 
@@ -21,3 +23,5 @@ apiRouter.use("/contributions", contributionsWriteRouter);
 apiRouter.use("/contributions", contributionsRouter);
 apiRouter.use("/uploads", uploadsRouter);
 apiRouter.use("/map", mapRouter);
+apiRouter.use("/moderation", moderationRouter);
+apiRouter.use("/admin", adminRouter);
