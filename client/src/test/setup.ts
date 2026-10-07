@@ -22,6 +22,11 @@ Object.defineProperty(window, "matchMedia", {
   }),
 });
 
+// jsdom n'implémente pas l'API des URL d'objets, dont dépend l'aperçu local
+// des photographies avant envoi.
+globalThis.URL.createObjectURL ??= () => "blob:apercu-de-test";
+globalThis.URL.revokeObjectURL ??= () => undefined;
+
 globalThis.ResizeObserver ??= class {
   observe(): void {}
   unobserve(): void {}

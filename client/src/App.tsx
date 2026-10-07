@@ -15,6 +15,9 @@ import { Inscription } from "./pages/Inscription";
 import { MotDePasseOublie } from "./pages/MotDePasseOublie";
 import { VerificationEmail } from "./pages/VerificationEmail";
 import { Profil } from "./pages/Profil";
+import { MonEspace } from "./pages/MonEspace";
+import { NouvelleContribution } from "./pages/NouvelleContribution";
+import { ModifierContribution } from "./pages/ModifierContribution";
 import { NonTrouve } from "./pages/NonTrouve";
 
 /**
@@ -61,7 +64,10 @@ export function App() {
 
           {/* Espace personnel — l'accès est aussi contrôlé côté serveur (§13). */}
           <Route element={<RequireAuth />}>
+            <Route path="mon-espace" element={<MonEspace />} />
+            <Route path="mon-espace/nouveau" element={<NouvelleContribution />} />
             <Route path="mon-espace/profil" element={<Profil />} />
+            <Route path="mon-espace/:id/modifier" element={<ModifierContribution />} />
           </Route>
 
           {/* Ancienne adresse du prototype. */}
