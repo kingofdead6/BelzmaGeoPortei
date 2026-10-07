@@ -6,6 +6,7 @@ import { IucnBadge } from "../components/ui/IucnBadge";
 import { Spinner } from "../components/ui/Spinner";
 import { ErrorNotice } from "../components/ui/ErrorNotice";
 import { useContribution } from "../lib/queries";
+import { ReportButton } from "../features/contributions/ReportButton";
 import { formatBytes, formatCoordinate, formatDate, formatNumber, pluralize } from "../lib/format";
 
 const KIND_LABELS = {
@@ -73,7 +74,12 @@ export function ContributionDetail() {
             <h1 className="mt-3 text-4xl">{item.title}</h1>
             <p className="mt-2 text-sm text-ink/65">
               Déposée par{" "}
-              <span className="font-medium text-forest-deep">{item.owner.displayName}</span>
+              <Link
+                to={`/contributeurs/${item.owner.id}`}
+                className="font-medium text-forest no-underline hover:underline"
+              >
+                {item.owner.displayName}
+              </Link>
               {item.owner.organization ? ` · ${item.owner.organization}` : ""} ·{" "}
               <span className="datum">{formatDate(item.publishedAt)}</span>
             </p>
@@ -170,6 +176,10 @@ export function ContributionDetail() {
               ))}
             </p>
           ) : null}
+
+          <footer className="mt-10 border-t border-forest-light/25 pt-5">
+            <ReportButton contributionId={item.id} ownerId={item.owner.id} />
+          </footer>
         </article>
       </div>
     </>

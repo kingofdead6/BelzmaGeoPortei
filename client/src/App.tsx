@@ -10,6 +10,7 @@ import { Patrimoine } from "./pages/Patrimoine";
 import { APropos } from "./pages/APropos";
 import { Galerie } from "./pages/Galerie";
 import { ContributionDetail } from "./pages/ContributionDetail";
+import { ProfilPublic } from "./pages/ProfilPublic";
 import { Connexion } from "./pages/Connexion";
 import { Inscription } from "./pages/Inscription";
 import { MotDePasseOublie } from "./pages/MotDePasseOublie";
@@ -63,6 +64,7 @@ export function App() {
           <Route path="patrimoine" element={<Patrimoine />} />
           <Route path="galerie" element={<Galerie />} />
           <Route path="contributions/:id" element={<ContributionDetail />} />
+          <Route path="contributeurs/:id" element={<ProfilPublic />} />
           <Route path="a-propos" element={<APropos />} />
 
           <Route path="connexion" element={<Connexion />} />

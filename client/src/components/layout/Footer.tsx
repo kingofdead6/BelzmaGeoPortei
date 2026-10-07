@@ -21,6 +21,7 @@ export function Footer() {
             <li><Link to="/biodiversite" className="no-underline hover:text-paper">Biodiversité</Link></li>
             <li><Link to="/patrimoine" className="no-underline hover:text-paper">Patrimoine</Link></li>
             <li><Link to="/galerie" className="no-underline hover:text-paper">Galerie</Link></li>
+            <li><Link to="/a-propos" className="no-underline hover:text-paper">À propos</Link></li>
           </ul>
         </nav>
 

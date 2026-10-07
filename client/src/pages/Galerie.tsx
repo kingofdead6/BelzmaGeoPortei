@@ -144,8 +144,8 @@ export function Galerie() {
                         ) : null}
 
                         <p className="mt-auto flex items-center justify-between gap-2 pt-2 text-xs text-ink/60">
-                          <span>{item.owner.displayName}</span>
-                          <span className="datum">{formatDate(item.publishedAt)}</span>
+                          <span className="truncate">{item.owner.displayName}</span>
+                          <span className="datum shrink-0">{formatDate(item.publishedAt)}</span>
                         </p>
                       </div>
                     </Link>
