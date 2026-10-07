@@ -75,7 +75,9 @@ export default {
           "repeating-radial-gradient(circle at 22% 34%, rgba(116,167,142,0.10) 0 1px, transparent 1px 22px), repeating-radial-gradient(circle at 78% 68%, rgba(184,145,44,0.08) 0 1px, transparent 1px 28px)",
       },
       screens: {
-        xs: "360px",
+        // 420 px : seuil au-delà duquel l'en-tête loge le libellé complet du
+        // bouton de connexion à côté du logo et du menu.
+        xs: "420px",
       },
     },
   },

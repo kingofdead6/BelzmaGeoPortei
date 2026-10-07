@@ -67,10 +67,10 @@ export function Connexion() {
         </Button>
 
         <div className="flex flex-wrap justify-between gap-2 text-sm">
-          <Link to="/mot-de-passe-oublie" className="text-forest no-underline hover:underline">
+          <Link to="/mot-de-passe-oublie" className="inline-flex min-h-[44px] items-center text-forest no-underline hover:underline">
             Mot de passe oublié ?
           </Link>
-          <Link to="/inscription" className="text-forest no-underline hover:underline">
+          <Link to="/inscription" className="inline-flex min-h-[44px] items-center text-forest no-underline hover:underline">
             Créer un compte
           </Link>
         </div>

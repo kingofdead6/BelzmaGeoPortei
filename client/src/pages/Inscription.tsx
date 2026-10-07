@@ -82,7 +82,7 @@ export function Inscription() {
 
         <p className="text-sm text-ink/70">
           Vous avez déjà un compte ?{" "}
-          <Link to="/connexion" className="text-forest no-underline hover:underline">
+          <Link to="/connexion" className="inline-flex min-h-[44px] items-center text-forest no-underline hover:underline">
             Se connecter
           </Link>
         </p>

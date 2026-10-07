@@ -126,6 +126,9 @@ export function Geoportail() {
       />
 
       <div ref={wrapperRef} className="flex min-h-0 flex-1 flex-col bg-paper">
+        {/* La carte occupe tout l'écran : le titre de niveau un est réservé
+            aux technologies d'assistance plutôt qu'affiché. */}
+        <h1 className="sr-only">Géoportail du Parc National de Belezma</h1>
         <div className="grid min-h-0 flex-1 lg:grid-cols-[280px_1fr_320px]">
           {/* Catalogue — colonne de gauche sur grand écran */}
           <aside

@@ -38,7 +38,9 @@ export default tseslint.config(
   {
     // Les scripts d'outillage et de seed rendent compte sur la sortie standard.
     files: ["scripts/**/*.{js,mjs}", "server/src/seed/**/*.ts"],
-    languageOptions: { globals: globals.node },
+    // Les scripts d'outillage pilotent un navigateur : `page.evaluate` exécute
+    // son corps dans la page, d'où les globales du navigateur.
+    languageOptions: { globals: { ...globals.node, ...globals.browser } },
     rules: { "no-console": "off" },
   },
   {

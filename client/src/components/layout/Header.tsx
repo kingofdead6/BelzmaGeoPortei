@@ -21,7 +21,7 @@ export function Header() {
       <div className="mx-auto flex h-14 max-w-[1600px] items-center gap-6 px-4">
         <Link
           to="/"
-          className="flex shrink-0 items-center gap-2.5 no-underline"
+          className="flex min-h-[44px] shrink-0 items-center gap-2.5 no-underline"
           onClick={() => setOpen(false)}
         >
           <Mountain className="h-5 w-5 text-gold" aria-hidden />

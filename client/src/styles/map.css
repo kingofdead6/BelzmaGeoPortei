@@ -9,10 +9,16 @@
   background: theme("colors.sand");
 }
 
+/* Leaflet dessine ses boutons en 30 px : trop petits pour une cible tactile.
+   Ils sont portés à 44 px, conformément à la règle du système (DESIGN.md §7). */
 .leaflet-control-zoom a,
 .leaflet-bar a {
   @apply border-forest-light/40 bg-paper text-forest-deep;
   border-radius: 4px !important;
+  width: 44px !important;
+  height: 44px !important;
+  line-height: 44px !important;
+  font-size: 1.125rem;
 }
 
 .leaflet-control-zoom a:hover,
@@ -22,6 +28,15 @@
 
 .leaflet-control-attribution {
   @apply bg-paper/90 font-mono text-2xs text-ink/70;
+  padding: 2px 6px;
+}
+
+/* Le crédit cartographique reste discret, mais ses liens atteignent la cible
+   minimale de 24 px exigée par WCAG 2.5.8. */
+.leaflet-control-attribution a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
 }
 
 .leaflet-popup-content-wrapper {

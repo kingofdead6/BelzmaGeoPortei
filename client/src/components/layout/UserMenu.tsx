@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { ChevronDown, LogOut, Shield, ShieldCheck, User as UserIcon } from "lucide-react";
+import { ChevronDown, LogIn, LogOut, Shield, ShieldCheck, User as UserIcon } from "lucide-react";
 import { useAuthStore } from "../../stores/auth-store";
 import { useLogout } from "../../lib/auth";
 import { clsx } from "../../lib/clsx";
@@ -38,9 +38,13 @@ export function UserMenu() {
     return (
       <Link
         to="/connexion"
-        className="flex min-h-[44px] shrink-0 items-center rounded-control border border-forest-light/40 px-3 text-sm text-paper no-underline transition-colors duration-quick hover:bg-forest/30"
+        // Sous 480 px, le libellé cède la place à l'icône : l'en-tête doit
+        // loger le logo, la connexion et le menu sans repli disgracieux.
+        className="flex min-h-[44px] shrink-0 items-center gap-2 whitespace-nowrap rounded-control border border-forest-light/40 px-3 text-sm text-paper no-underline transition-colors duration-quick hover:bg-forest/30"
+        aria-label="Se connecter"
       >
-        Se connecter
+        <LogIn className="h-4 w-4 xs:hidden" aria-hidden />
+        <span className="hidden xs:inline">Se connecter</span>
       </Link>
     );
   }

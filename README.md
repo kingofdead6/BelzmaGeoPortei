@@ -264,7 +264,26 @@ MONGODB_TEST_URI=mongodb://127.0.0.1:27017 npm test --workspace @belezma/server
 ```
 
 Côté client, Vitest et Testing Library couvrent le catalogue de couches, le
-partage de la vue par l'URL et l'assistant de dépôt.
+partage de la vue par l'URL, l'assistant de dépôt, et les contrastes de la
+palette — ces derniers calculés, non supposés.
+
+### Audit d'accessibilité sur navigateur
+
+`scripts/audit-accessibilite.mjs` parcourt les pages publiques à 360 px et à
+1440 px avec un Chromium réel, et vérifie l'absence de défilement horizontal,
+la taille des cibles, l'alternative textuelle des images, l'unicité du titre de
+niveau un, le nom accessible des boutons et la langue du document.
+
+```bash
+npm run build --workspace @belezma/client
+npx vite preview --port 4173 --strictPort   # depuis client/
+node scripts/audit-accessibilite.mjs
+```
+
+Deux emplacements appliquent le minimum de 24 px de WCAG 2.5.8 plutôt que les
+44 px du système, faute de place, et l'audit le déclare explicitement : la
+barre d'état de la carte, haute de 32 px, et le crédit cartographique
+obligatoire de Leaflet.
 
 ---
 

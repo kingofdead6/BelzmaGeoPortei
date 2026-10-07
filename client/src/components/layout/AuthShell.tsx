@@ -15,7 +15,7 @@ export function AuthShell({
   return (
     <div className="contours flex min-h-[calc(100dvh-3.5rem)] items-start justify-center bg-sand/50 px-4 py-14">
       <div className="w-full max-w-md">
-        <Link to="/" className="mb-6 flex items-center gap-2 no-underline">
+        <Link to="/" className="mb-4 flex min-h-[44px] items-center gap-2 no-underline">
           <Mountain className="h-5 w-5 text-forest" aria-hidden />
           <span className="font-mono text-2xs uppercase tracking-[0.14em] text-earth">
             Parc National de Belezma

@@ -21,7 +21,10 @@ export function StatusBar() {
   const distance = measureLength(measurePoints);
 
   return (
-    <div className="on-dark flex min-h-8 flex-wrap items-center gap-x-5 gap-y-1 border-t border-forest-light/20 bg-forest-deep px-3 py-1.5 font-mono text-2xs text-forest-light">
+    <div
+      data-cible-reduite
+      className="on-dark flex min-h-8 flex-wrap items-center gap-x-5 gap-y-1 border-t border-forest-light/20 bg-forest-deep px-3 py-1.5 font-mono text-2xs text-forest-light"
+    >
       <span
         aria-live={announceCursor ? "polite" : "off"}
         aria-atomic="true"
@@ -32,6 +35,8 @@ export function StatusBar() {
           : "Déplacez le curseur sur la carte"}
       </span>
 
+      {/* La barre d'état mesure 32 px : une cible de 44 px n'y tient pas. Ce
+          bouton applique donc le minimum de 24 px de WCAG 2.5.8 (niveau AA). */}
       <button
         type="button"
         onClick={toggleAnnounceCursor}
@@ -41,7 +46,7 @@ export function StatusBar() {
             ? "Ne plus annoncer les coordonnées aux lecteurs d'écran"
             : "Annoncer les coordonnées aux lecteurs d'écran"
         }
-        className="flex h-6 items-center gap-1 rounded-control px-1 text-forest-light hover:text-paper"
+        className="flex h-6 min-h-[24px] min-w-[24px] items-center justify-center gap-1 rounded-control px-1 text-forest-light hover:text-paper"
       >
         {announceCursor ? (
           <Volume2 className="h-3 w-3" aria-hidden />

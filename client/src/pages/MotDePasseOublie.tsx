@@ -34,7 +34,7 @@ function RequestForm() {
           <p className="text-sm leading-relaxed text-ink/80">{request.data.message}</p>
         </div>
         <p className="mt-6 text-sm">
-          <Link to="/connexion" className="text-forest no-underline hover:underline">
+          <Link to="/connexion" className="inline-flex min-h-[44px] items-center text-forest no-underline hover:underline">
             Revenir à la connexion
           </Link>
         </p>
@@ -70,7 +70,7 @@ function RequestForm() {
         </Button>
 
         <p className="text-sm">
-          <Link to="/connexion" className="text-forest no-underline hover:underline">
+          <Link to="/connexion" className="inline-flex min-h-[44px] items-center text-forest no-underline hover:underline">
             Revenir à la connexion
           </Link>
         </p>

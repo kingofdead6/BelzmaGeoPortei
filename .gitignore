@@ -13,3 +13,4 @@ client/dist/
 server/dist/
 shared/dist/
 server/.env.test
+audit-accessibilite/
