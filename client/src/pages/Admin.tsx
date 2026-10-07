@@ -253,17 +253,15 @@ function Figure({
   accent?: boolean;
 }) {
   return (
-    <div className="bg-paper px-4 py-5">
+    <div
+      className={clsx(
+        "bg-paper px-4 py-5 border-t-2",
+        accent ? "border-gold" : "border-transparent",
+      )}
+    >
       <dt className="font-mono text-2xs uppercase tracking-[0.1em] text-earth">{label}</dt>
       <dd>
-        <span
-          className={clsx(
-            "datum mt-1.5 block text-3xl leading-none",
-            accent ? "text-gold" : "text-forest-deep",
-          )}
-        >
-          {value}
-        </span>
+        <span className="datum mt-1.5 block text-3xl leading-none text-forest-deep">{value}</span>
         <span className="mt-2 block text-xs leading-snug text-ink/60">{note}</span>
       </dd>
     </div>

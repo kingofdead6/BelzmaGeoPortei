@@ -44,28 +44,55 @@ Le texte courant ne l'est jamais.
 
 ### Statuts UICN
 
+Couleurs canoniques, reprises du prototype :
 `CR #B91C1C` · `EN #DC2626` · `VU #EA580C` · `NT #CA8A04` · `LC #16A34A` ·
 `DD #6B7280`
 
-Rendus en pastille : fond à 13 % d'opacité, bordure à 40 %, texte à pleine
-valeur, libellé en mono. Le code seul ne suffit jamais — un `title` et un
-`aria-label` portent l'intitulé complet (« En danger »).
+Rendues telles quelles en texte sur leur propre fond teinté, **cinq des six
+échouent AA** (NT ne tient que 2,46:1). La pastille dissocie donc les deux
+rôles : le **fond** porte la couleur canonique à 13 % d'opacité — c'est elle qui
+code la catégorie — tandis que le **texte et la bordure** emploient une variante
+assombrie, de même teinte, qui dépasse 4,5:1 sur `paper` comme sur `sand` :
 
-### Contraste — contrôlé, pas supposé
+| | canonique | texte et bordure | ratio sur `paper` | sur `sand` |
+|---|---|---|---:|---:|
+| CR | `#B91C1C` | `#B51B1B` | 5,10 | 4,52 |
+| EN | `#DC2626` | `#B41F1F` | 5,16 | 4,57 |
+| VU | `#EA580C` | `#A63E09` | 5,16 | 4,58 |
+| NT | `#CA8A04` | `#835A03` | 5,12 | 4,56 |
+| LC | `#16A34A` | `#0F7033` | 5,12 | 4,54 |
+| DD | `#6B7280` | `#5A606C` | 5,11 | 4,53 |
+
+CR et EN se rapprochent en texte, ce qui reflète la proximité des deux rouges
+dans la source. Le code seul ne suffit de toute façon jamais : `title` et un
+texte réservé aux lecteurs d'écran portent l'intitulé complet (« En danger »).
+
+### Contraste — mesuré, pas supposé
+
+Ces valeurs sont calculées, et vérifiées en continu par
+`client/src/test/contrast.test.ts`.
 
 | Paire | Ratio | Verdict |
-|---|---|---|
-| `ink` sur `paper` | 13,9:1 | AAA |
-| `ink` sur `sand` | 12,6:1 | AAA |
-| `forest` sur `paper` | 5,9:1 | AA à tout corps |
-| `earth` sur `paper` | 5,7:1 | AA à tout corps |
-| `gold` sur `paper` | 3,1:1 | **Échoue en dessous de 24 px** |
-| `paper` sur `forest-deep` | 14,2:1 | AAA |
-| `forest-light` sur `forest-deep` | 6,1:1 | AA |
+|---|---:|---|
+| `ink` sur `paper` | 14,75 | AAA |
+| `ink` sur `sand` | 12,94 | AAA |
+| `forest` sur `paper` | 6,07 | AA |
+| `forest` sur `sand` | 5,33 | AA |
+| `earth` sur `paper` | 5,56 | AA |
+| `earth` sur `sand` | 4,87 | AA |
+| `forest-deep` sur `sand` | 11,36 | AAA |
+| `paper` sur `forest-deep` | 12,95 | AAA |
+| `forest-light` sur `forest-deep` | 4,97 | AA |
+| `gold` sur `forest-deep` | 4,62 | AA |
+| `gold` sur `paper` | **2,80** | **échoue, y compris en grand corps** |
+| `gold` sur `sand` | **2,46** | **échoue, y compris en grand corps** |
 
-**Conséquence appliquée partout : `gold` ne sert qu'aux aplats, filets et
-titres d'affichage ≥ 24 px. Tout texte d'accent en petit corps est en
-`earth`.**
+**Conséquence appliquée partout : sur fond clair, `gold` ne porte jamais de
+texte — ni petit, ni grand.** Il ne sert qu'aux aplats et aux filets : le
+chiffre-clé accentué de l'accueil et de l'administration est souligné d'un
+filet `gold` et composé en `forest-deep`. Tout texte d'accent est en `earth`.
+Sur `forest-deep`, en revanche, `gold` tient 4,62:1 et peut porter du texte —
+c'est le cas de la mesure en cours dans la barre d'état de la carte.
 
 ---
 

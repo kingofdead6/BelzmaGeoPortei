@@ -1,0 +1,18 @@
+[build]
+  command = "npm run build:shared && npm run build --workspace @belezma/client"
+  publish = "client/dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Les routes sont gérées côté client : tout est réécrit vers index.html.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Les fichiers générés portent une empreinte dans leur nom : cache long.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

@@ -40,7 +40,7 @@ export function Accueil() {
         />
         <div className="relative mx-auto max-w-[1600px] px-4 py-22 lg:py-[7.5rem]">
           <div className="max-w-3xl">
-            <p className="font-mono text-2xs uppercase tracking-[0.16em] text-gold">
+            <p className="font-mono text-2xs uppercase tracking-[0.16em] text-paper/90">
               Wilaya de Batna · Massif des Aurès · Algérie
             </p>
             <h1 className="mt-4 text-4xl font-semibold text-paper lg:text-5xl">
@@ -205,12 +205,12 @@ function KeyFigure({
   accent?: boolean;
 }) {
   return (
-    <div className="bg-sand px-4 py-7 lg:px-6">
+    <div
+      className={`bg-sand px-4 py-7 lg:px-6 ${accent ? "border-t-2 border-gold" : "border-t-2 border-transparent"}`}
+    >
       <dt className="font-mono text-2xs uppercase tracking-[0.12em] text-earth">{label}</dt>
       <dd className="mt-2">
-        <span
-          className={`datum block text-3xl font-medium leading-none lg:text-4xl ${accent ? "text-gold" : "text-forest-deep"}`}
-        >
+        <span className="datum block text-3xl font-medium leading-none text-forest-deep lg:text-4xl">
           {value ?? "—"}
         </span>
         <span className="mt-1.5 block font-mono text-xs text-ink/70">{unit}</span>

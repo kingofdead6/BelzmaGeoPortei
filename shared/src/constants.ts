@@ -35,6 +35,23 @@ export const IUCN_COLORS: Record<IucnStatus, string> = {
   DD: "#6B7280",
 };
 
+/**
+ * Variante assombrie des couleurs UICN, employée pour le texte et la bordure
+ * des pastilles. Les valeurs ci-dessus sont celles du prototype et restent la
+ * référence du codage chromatique, mais elles n'atteignent pas 4,5:1 sur leur
+ * propre fond teinté : NT culmine à 2,46:1. Ces variantes conservent la teinte
+ * — seule la luminosité baisse — et dépassent 4,5:1 sur `paper` comme sur
+ * `sand` (DESIGN.md §2).
+ */
+export const IUCN_TEXT_COLORS: Record<IucnStatus, string> = {
+  CR: "#B51B1B",
+  EN: "#B41F1F",
+  VU: "#A63E09",
+  NT: "#835A03",
+  LC: "#0F7033",
+  DD: "#5A606C",
+};
+
 export const IUCN_LABELS: Record<IucnStatus, string> = {
   CR: "En danger critique",
   EN: "En danger",
