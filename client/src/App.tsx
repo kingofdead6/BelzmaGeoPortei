@@ -28,6 +28,15 @@ const Geoportail = lazy(() =>
   import("./pages/Geoportail").then((module) => ({ default: module.Geoportail })),
 );
 
+/**
+ * La modération et l'administration sont réservées à l'équipe du parc : elles
+ * n'ont pas à peser sur le premier chargement des pages publiques.
+ */
+const Moderation = lazy(() =>
+  import("./pages/Moderation").then((module) => ({ default: module.Moderation })),
+);
+const Admin = lazy(() => import("./pages/Admin").then((module) => ({ default: module.Admin })));
+
 function RouteFallback({ label }: { label: string }) {
   return (
     <div className="flex min-h-[60vh] items-center justify-center text-forest">
@@ -68,6 +77,28 @@ export function App() {
             <Route path="mon-espace/nouveau" element={<NouvelleContribution />} />
             <Route path="mon-espace/profil" element={<Profil />} />
             <Route path="mon-espace/:id/modifier" element={<ModifierContribution />} />
+          </Route>
+
+          <Route element={<RequireAuth minimumRole="moderator" />}>
+            <Route
+              path="moderation"
+              element={
+                <Suspense fallback={<RouteFallback label="Chargement de la modération" />}>
+                  <Moderation />
+                </Suspense>
+              }
+            />
+          </Route>
+
+          <Route element={<RequireAuth minimumRole="admin" />}>
+            <Route
+              path="admin"
+              element={
+                <Suspense fallback={<RouteFallback label="Chargement de l'administration" />}>
+                  <Admin />
+                </Suspense>
+              }
+            />
           </Route>
 
           {/* Ancienne adresse du prototype. */}
